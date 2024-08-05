@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Font Changer</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Font Changer</h1>
+        <label for="fontSelector">Choose a font:</label>
+        <select id="fontSelector">
+            <option value="Arial" style="font-family: Arial;">Arial</option>
+            <option value="Verdana" style="font-family: Verdana;">Verdana</option>
+            <option value="Times New Roman" style="font-family: 'Times New Roman';">Times New Roman</option>
+            <option value="Courier New" style="font-family: 'Courier New';">Courier New</option>
+            <option value="Georgia" style="font-family: Georgia;">Georgia</option>
+        </select>
+        <textarea id="userText" placeholder="Type something..."></textarea>
+        <div id="outputText"></div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
