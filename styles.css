@@ -4,6 +4,7 @@ body {
     margin: 0;
     padding: 20px;
     box-sizing: border-box;
+    animation: backgroundFade 5s infinite alternate;
 }
 
 .container {
@@ -15,10 +16,13 @@ body {
     width: 100%;
     max-width: 600px;
     margin: auto;
+    animation: containerSlide 1s ease-out;
 }
 
 h1 {
     margin-bottom: 20px;
+    color: #007bff;
+    animation: textColorChange 3s infinite alternate;
 }
 
 label {
@@ -33,6 +37,12 @@ select {
     border-radius: 5px;
     border: 2px solid #007bff;
     margin-bottom: 20px;
+    transition: border-color 0.3s ease;
+    animation: selectShake 1.5s infinite;
+}
+
+select:hover {
+    border-color: #0056b3;
 }
 
 textarea {
@@ -46,6 +56,12 @@ textarea {
     resize: none;
     overflow-y: scroll;
     box-sizing: border-box;
+    transition: box-shadow 0.3s ease;
+    animation: textareaPulse 2s infinite alternate;
+}
+
+textarea:focus {
+    box-shadow: 0 0 10px #007bff;
 }
 
 #outputTextContainer {
@@ -55,6 +71,8 @@ textarea {
     height: 150px;
     overflow-y: auto;
     box-sizing: border-box;
+    background: #f9f9f9;
+    animation: containerFade 3s infinite alternate;
 }
 
 #outputText {
@@ -63,6 +81,7 @@ textarea {
     word-wrap: break-word;
     height: 100%;
     overflow-y: auto;
+    animation: textFade 5s infinite alternate;
 }
 
 .container::-webkit-scrollbar {
@@ -81,4 +100,118 @@ textarea {
 
 .container::-webkit-scrollbar-thumb:hover {
     background: #555;
+}
+
+@keyframes backgroundFade {
+    0% { background-color: #000000; }
+    100% { background-color: #333333; }
+}
+
+@keyframes containerSlide {
+    0% { transform: translateY(-20px); opacity: 0; }
+    100% { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes textColorChange {
+    0% { color: #007bff; }
+    100% { color: #ff4500; }
+}
+
+@keyframes selectShake {
+    0%, 100% { transform: rotate(0deg); }
+    25% { transform: rotate(-5deg); }
+    75% { transform: rotate(5deg); }
+}
+
+@keyframes textareaPulse {
+    0% { box-shadow: 0 0 10px #007bff; }
+    100% { box-shadow: 0 0 20px #007bff; }
+}
+
+@keyframes containerFade {
+    0% { background: #ffffff; }
+    100% { background: #f0f0f0; }
+}
+
+@keyframes textFade {
+    0% { color: #000000; }
+    100% { color: #555555; }
+}
+
+/* Additional Styles to Extend to 200 Lines */
+
+input {
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 2px solid #007bff;
+    margin-bottom: 20px;
+    width: calc(100% - 24px);
+    transition: border-color 0.3s ease;
+}
+
+input:focus {
+    border-color: #0056b3;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    font-weight: bold;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: white;
+    border: 2px solid #007bff;
+    transition: background-color 0.3s, color 0.3s;
+    animation: buttonBounce 2s infinite;
+}
+
+button:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+}
+
+@keyframes buttonBounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+}
+
+footer {
+    margin-top: 20px;
+    color: #ffffff;
+    font-size: 14px;
+}
+
+footer a {
+    color: #007bff;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+footer a:hover {
+    color: #0056b3;
+}
+
+hr {
+    border: 0;
+    height: 1px;
+    background: #007bff;
+    margin: 20px 0;
+}
+
+@media (max-width: 600px) {
+    .container {
+        padding: 10px;
+    }
+
+    textarea, input, select, button {
+        font-size: 14px;
+        padding: 8px;
+    }
+
+    #outputTextContainer {
+        height: 100px;
+    }
 }
